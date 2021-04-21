@@ -1,4 +1,4 @@
-version: '1.0'
+version: '3.3'
 
 services:
     wordpress:
@@ -23,7 +23,7 @@ services:
             MYSQL_PASSWPRD: wordpresspass
         volumes:
             - db:/var/lib/mysql
-            
+
 volumes:
     wordpress:
     db:
