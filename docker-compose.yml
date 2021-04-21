@@ -1,0 +1,29 @@
+version: '1.0'
+
+services:
+    wordpress:
+        image: wordpress
+        restart: always
+        ports: 
+            - 2000:80
+        enviroment:
+            WORDPRESS_DB_HOST: db
+            WORDPRESS_DB_USER: wordpress
+            WORDPRESS_DB_PASSWORD: wordpresspass
+            WORDPRESS_DB_NAME: wordpress
+        volumes:
+            - wordpress:/var/www/html
+    db:
+        image: mysql:5.7
+        restart: always
+        enviroment:
+            MYSQL_ROOT_PASSWORD: password
+            MYSQL_DATABASE: wordpress
+            MYSQL_USER: wordpress
+            MYSQL_PASSWPRD: wordpresspass
+        volumes:
+            - db:/var/lib/mysql
+            
+volumes:
+    wordpress:
+    db:
